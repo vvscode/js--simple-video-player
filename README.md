@@ -1,18 +1,20 @@
 # Simple Video Player
 
-This project is meant to show an understanding and ability to use the html <video> tag and its API.
+This project is meant to show an understanding and ability to use the html `<video>` tag and its API.
+
+![Demo Screen](demo/screen.png)
 
 ### TODO:
 
-- [x] Natives controls must be hidden
-- [x] A personalised progress bar must be visible and must be updated during playback
-- [x] A custom play/pause button(s) must be implemented and control the video
-- [x] Implementation with vanilla javascript (document.querySelector..) or React (jQuery forbidden !!)
-- [x] Some units testing. (mocha.. )
-- [x] Code hosted on github
-- [x] A small description on how you would implement the deployment of your player. (Build, infrastructure, servers, continuous integration, environnements (prod, test..), etc..) 3 or 4 lines
-- [x] All “bundle” tools are allowed: webpack, browserify, bower, npm, gulp..
-- [x] Bonus: An “end to end” test: Check that if I load the player, the button(s) play/pause is visible (nightwatch.js, etc...)
+* [x] Natives controls must be hidden
+* [x] A personalised progress bar must be visible and must be updated during playback
+* [x] A custom play/pause button(s) must be implemented and control the video
+* [x] Implementation with vanilla javascript (document.querySelector..) or React (jQuery forbidden !!)
+* [x] Some units testing. (mocha.. )
+* [x] Code hosted on github
+* [x] A small description on how you would implement the deployment of your player. (Build, infrastructure, servers, continuous integration, environnements (prod, test..), etc..) 3 or 4 lines
+* [x] All “bundle” tools are allowed: webpack, browserify, bower, npm, gulp..
+* [x] Bonus: An “end to end” test: Check that if I load the player, the button(s) play/pause is visible (nightwatch.js, etc...)
 
 ### Deployment description
 
