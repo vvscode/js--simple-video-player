@@ -5,15 +5,16 @@
   "main": "dist/simple-video-player.js",
   "scripts": {
     "test": "mocha src/simple-video-player.test.js",
-    "deploy": "gulp build && gh-pages -d demo"
+    "deploy": "gulp build && gh-pages -d demo",
+    "serve": "static demo --port 9876",
+    "e2e:chrome": "testcafe chrome src/simple-video-player.e2e.js",
+    "e2e:headless": "testcafe nightmare src/simple-video-player.e2e.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vvscode/js--simple-video-player.git"
   },
-  "keywords": [
-    "video"
-  ],
+  "keywords": ["video"],
   "author": "vvscode",
   "license": "ISC",
   "bugs": {
@@ -29,6 +30,9 @@
     "gulp-include": "^2.3.1",
     "gulp-rename": "^1.2.2",
     "jsdom": "^11.5.1",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "node-static": "^0.7.10",
+    "testcafe": "^0.18.5",
+    "testcafe-browser-provider-nightmare": "0.0.5"
   }
 }

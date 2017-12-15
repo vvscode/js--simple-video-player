@@ -6,4 +6,6 @@ install:
   - npm install
 
 script:
-  - npm run test && npm run deploy
+  - npm run test
+  - npm run serve &>/dev/null &
+  - npm run e2e:headless
