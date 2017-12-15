@@ -65,6 +65,10 @@ class SimpleVideoPlayer {
     this[ELEMENT].querySelector("video").pause();
   }
 
+  goTo(time) {
+    this[ELEMENT].querySelector("video").currentTime = time;
+  }
+
   subscribeToEvents() {
     var videoEl = this[ELEMENT].querySelector("video");
     videoEl.addEventListener("durationchange", data =>
@@ -90,5 +94,13 @@ class SimpleVideoPlayer {
       "click",
       () => this.togglePlayState()
     );
+
+    this[ELEMENT].querySelector("progress").addEventListener("click", ev => {
+      this.goTo(
+        parseFloat(ev.target.getAttribute("max")) *
+          ev.offsetX /
+          ev.target.offsetWidth
+      );
+    });
   }
 }
