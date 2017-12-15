@@ -4,7 +4,8 @@
   "description": "Simple video player (wrapper for native video tag)",
   "main": "dist/simple-video-player.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "deploy": "gulp build && gh-pages -d demo"
   },
   "repository": {
     "type": "git",
