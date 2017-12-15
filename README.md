@@ -1,4 +1,4 @@
-# Simple Video Player
+# Simple Video Player [![Build Status](https://travis-ci.org/vvscode/js--simple-video-player.svg?branch=master)](https://travis-ci.org/vvscode/js--simple-video-player)
 
 This project is meant to show an understanding and ability to use the html `<video>` tag and its API.
 
