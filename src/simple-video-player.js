@@ -2,26 +2,21 @@ var ELEMENT = Symbol("element");
 var URL = Symbol("url");
 var PLAY_STATE = Symbol("playState");
 
-const updateDuration = (el, data) =>
-  el.querySelector(".progress-bar").setAttribute("max", data.target.duration);
+const updateDuration = (el, duration) =>
+  el.querySelector(".progress-bar").setAttribute("max", duration);
 
-const updateCurrentTime = (el, data) => {
-  el
-    .querySelector(".progress-bar")
-    .setAttribute("value", data.target.currentTime);
-};
+const updateCurrentTime = (el, currentTime) =>
+  el.querySelector(".progress-bar").setAttribute("value", currentTime);
 
-const resetProgress = (el, data) => {
-  el.querySelector("video").currentTime = 0;
-};
+const resetProgress = (el, data) => (el.querySelector("video").currentTime = 0);
 
-const updatePlayStopControlState = (el, data) => {
+const updatePlayStopControlState = (el, type) => {
   var btn = el.querySelector('[data-role="play-stop"]');
 
-  if (data.type === "play") {
+  if (type === "play") {
     btn.classList.remove("stopped");
     btn.classList.add("play");
-  } else if ((data.type = "pause")) {
+  } else if ((type = "pause")) {
     btn.classList.remove("play");
     btn.classList.add("stopped");
   }
@@ -73,22 +68,22 @@ SimpleVideoPlayer.prototype.stop = function() {
 SimpleVideoPlayer.prototype.subscribeToEvent = function() {
   var videoEl = this[ELEMENT].querySelector("video");
   videoEl.addEventListener("durationchange", data =>
-    updateDuration(this[ELEMENT], data)
+    updateDuration(this[ELEMENT], videoEl.duration)
   );
 
   videoEl.addEventListener("timeupdate", data =>
-    updateCurrentTime(this[ELEMENT], data)
+    updateCurrentTime(this[ELEMENT], videoEl.currentTime)
   );
 
   videoEl.addEventListener("play", data =>
-    updatePlayStopControlState(this[ELEMENT], data)
+    updatePlayStopControlState(this[ELEMENT], data.type)
   );
   videoEl.addEventListener("pause", data =>
-    updatePlayStopControlState(this[ELEMENT], data)
+    updatePlayStopControlState(this[ELEMENT], data.type)
   );
   videoEl.addEventListener("ended", data => {
     this[PLAY_STATE] = false;
-    resetProgress(this[ELEMENT], data);
+    resetProgress(this[ELEMENT]);
   });
 
   this[ELEMENT].querySelector('[data-role="play-stop"]').addEventListener(
