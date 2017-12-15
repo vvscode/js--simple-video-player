@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/vvscode/js--simple-video-player.git"
   },
-  "keywords": ["video"],
+  "keywords": [
+    "video"
+  ],
   "author": "vvscode",
   "license": "ISC",
   "bugs": {
@@ -19,8 +21,11 @@
   },
   "homepage": "https://vvscode.github.io/js--simple-video-player",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "gh-pages": "^1.1.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
     "gulp-include": "^2.3.1",
     "gulp-rename": "^1.2.2",
     "jsdom": "^11.5.1",
