@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Simple Video Demo</title>
+  <title>Simple Video Demo (latest)</title>
   <style>
     .demo-wrapper {
       display: inline-block;
@@ -28,7 +28,7 @@
 
 <body>
 </body>
-<h1>Simple video player demo</h1>
+<h1>Simple video player demo (latest)</h1>
 <p>More information and source code could be found
   <a href="https://github.com/vvscode/js--simple-video-player">here</a>
 </p>
@@ -37,7 +37,7 @@
 <script>
   (function () {
     new SimpleVideoPlayer({
-      el: '.demo-wrapper',
+      el: document.querySelector('.demo-wrapper'),
       url: 'https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4'
     });
   })();
