@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Video Demo</title>
+  <style>
+    .demo-wrapper {
+      display: inline-block;
+    }
+
+    .progress-bar {
+      width: 100%;
+    }
+
+    [data-role="play-stop"].stopped:after {
+      content: '>';
+    }
+
+    [data-role="play-stop"].play:after {
+      content: '||';
+    }
+
+  </style>
+</head>
+
+<body>
+</body>
+<div class="demo-wrapper"></div>
+<script src="simple-video-player.js"></script>
+<script>
+  (function () {
+    new SimpleVideoPlayer({
+      el: '.demo-wrapper',
+      url: 'https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4'
+    });
+  })();
+</script>
+
+</html>
