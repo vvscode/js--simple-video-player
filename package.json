@@ -1,0 +1,27 @@
+{
+  "name": "js--simple-video-player",
+  "version": "0.0.0",
+  "description": "Simple video player (wrapper for native video tag)",
+  "main": "dist/simple-video-player.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vvscode/js--simple-video-player.git"
+  },
+  "keywords": [
+    "video"
+  ],
+  "author": "vvscode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vvscode/js--simple-video-player/issues"
+  },
+  "homepage": "https://github.com/vvscode/js--simple-video-player#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-include": "^2.3.1",
+    "gulp-rename": "^1.2.2"
+  }
+}
