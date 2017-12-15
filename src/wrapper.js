@@ -1,4 +1,4 @@
-(function(global, rootEl) {
+(function(window, rootEl) {
   /*=include ./simple-video-player.js */
   global.SimpleVideoPlayer = global.SimpleVideoPlayer || SimpleVideoPlayer;
 })(window, window.document);

@@ -23,11 +23,10 @@ const updatePlayStopControlState = (el, type) => {
 };
 
 function SimpleVideoPlayer(options) {
-  var el = rootEl.querySelector(options.el);
-  if (!el || !options.url) {
+  if (!options.el || !options.url) {
     throw "Please provide both element selector and url for constructor";
   }
-  this[ELEMENT] = el;
+  this[ELEMENT] = options.el;
   this[URL] = options.url;
   this[PLAY_STATE] = false;
   this.draw();

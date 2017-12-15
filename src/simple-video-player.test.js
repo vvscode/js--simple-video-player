@@ -94,3 +94,91 @@ describe("helper", () => {
     });
   });
 });
+
+describe("SimpleVideoPlayer", () => {
+  let el;
+  const url =
+    "https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4";
+  beforeEach(() => {
+    el = new JSDOM(`<div></div>`).window.document.querySelector("div");
+  });
+
+  it("is constructor", () => {
+    assert.ok(typeof SimpleVideoPlayer === "function");
+    assert.ok(
+      new SimpleVideoPlayer({
+        el,
+        url
+      }) instanceof SimpleVideoPlayer
+    );
+  });
+
+  it("requires el and url params", () => {
+    try {
+      new SimpleVideoPlayer();
+      assert.ok(false, "work with no params");
+    } catch (e) {
+      assert.ok(true, "doesn't work with no params");
+    }
+
+    try {
+      new SimpleVideoPlayer({});
+      assert.ok(false, "work with no el / url ");
+    } catch (e) {
+      assert.ok(true, "doesn't work with no el / url");
+    }
+
+    try {
+      new SimpleVideoPlayer({ el });
+      assert.ok(false, "work with no url");
+    } catch (e) {
+      assert.ok(true, "doesn't work with no url");
+    }
+
+    try {
+      new SimpleVideoPlayer({ url });
+      assert.ok(false, "work with no el");
+    } catch (e) {
+      assert.ok(true, "doesn't work with no el");
+    }
+
+    new SimpleVideoPlayer({ url, el });
+    assert.ok(true, "work with  el and url");
+  });
+
+  it("renders on init", () => {
+    let svp = new SimpleVideoPlayer({
+      el,
+      url
+    });
+    let video = el.querySelector("video");
+    assert.equal(video.getAttribute("src"), url, "renders correct video url");
+    assert.ok(
+      el.querySelector('[data-role="play-stop"].stopped'),
+      "stopped by default"
+    );
+  });
+
+  it("toggle video state", () => {
+    let operations = [];
+    let svp = new SimpleVideoPlayer({
+      el,
+      url
+    });
+    let btn = el.querySelector('[data-role="play-stop"]');
+    let video = el.querySelector("video");
+    video.play = () => operations.push("play");
+    video.pause = () => operations.push("pause");
+
+    btn.click();
+    assert.deepEqual(operations, ["play"], "play from stopped");
+    btn.click();
+    assert.deepEqual(operations, ["play", "pause"], "pause from played");
+    btn.click();
+    assert.deepEqual(
+      operations,
+      ["play", "pause", "play"],
+      "pause from stopped again"
+    );
+  });
+});
